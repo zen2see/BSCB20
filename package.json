@@ -1,0 +1,23 @@
+{
+  "name": "bscb20",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "keywords": [
+        "ethereum",
+        "react",
+        "uniswap",
+        "workspaces",
+        "yarn"
+  ],
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": [
+      "**/@graphprotocol/graph-ts",
+      "**/@graphprotocol/graph-ts/**"
+    ]
+  }
+}
