@@ -1,8 +1,8 @@
-/**
+/**git gi
  * @type import('hardhat/config').HardhatUserConfig
  */
  require('hardhat-deploy');
- require('hardhat-spdx-license-identifier');
+ //require('hardhat-spdx-license-identifier');
  require('dotenv').config();
  require('@nomiclabs/hardhat-ethers');
  // require('hardhat-abi-exporter');
