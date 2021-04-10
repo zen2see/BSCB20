@@ -1,4 +1,4 @@
-/**git gi
+/**
  * @type import('hardhat/config').HardhatUserConfig
  */
  require('hardhat-deploy');
