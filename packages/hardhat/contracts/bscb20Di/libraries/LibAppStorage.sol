@@ -10,7 +10,7 @@ struct BSCB20Di {
 }
 
 struct AppStorage {
-     uint32[] tokenIds;
+    uint32[] tokenIds;
     mapping(uint256 => uint256) tokenIdIndexes;
     mapping(address => mapping(address => bool)) operators;
     mapping(uint256 => address) approved;

@@ -32,10 +32,7 @@ async function main (scriptName) {
   let linkContract
   let keyHash
   let fee
-  //let bscb20Diamond
-  let ghstTokenContract
-  let bscb721DiDiamond
-  const gasLimit = 12300000
+  const gasLimit = 32300000
   const name = 'BSCB'
   const symbol = 'BSCB'
 
@@ -101,25 +98,25 @@ async function main (scriptName) {
   }
 
   let [
-    bscb20facet,
+    bscb20Facet,
     //BSCB721Facet
   ] = await deployFacets(
     'contracts/bscb20Di/facets/BSCB20Facet.sol:BSCB20Facet'
     // 'contracts/bscb721/facets/BSCB721Facet.sol:BSCB721Facet'
   )
 
-  if (hre.network.name === 'hardhat') {
-    bscb721diamond = await diamond.deploy({
-      diamondName: 'BSCB721Diamond',
-      initDiamond: 'contracts/bscb721/InitDiamond.sol:InitDiamond',
-      facets: [
-        'BSCB721Facet'
-      ],
-      owner: account
-    })
-    bscb721Contract = await ethers.getContractAt('BSCB721Facet', bscb721Contract.address)
-    console.log('BSCB729 diamond address:' + bscb721Contract.address)
-  }
+  // if (hre.network.name === 'hardhat') {
+  //   bscb721diamond = await diamond.deploy({
+  //     diamondName: 'BSCB721Diamond',
+  //     initDiamond: 'contracts/bscb721/InitDiamond.sol:InitDiamond',
+  //     facets: [
+  //       'BSCB721Facet'
+  //     ],
+  //     owner: account
+  //   })
+  //   bscb721Contract = await ethers.getContractAt('BSCB721Facet', bscb721Contract.address)
+  //   console.log('BSCB729 diamond address:' + bscb721Contract.address)
+  // }
 
   
   // eslint-disable-next-line no-unused-vars
@@ -127,7 +124,7 @@ async function main (scriptName) {
     diamondName: 'BSCB20diamond',
     initDiamond: 'contracts/bscb20Di/InitDiamond.sol:InitDiamond',
     facets: [
-      ['BSCB20Facet', bscb20facet]
+      ['BSCB20Facet', bscb20Facet]
     ],
     owner: account, 
     args: [[name, symbol]]
@@ -339,7 +336,7 @@ async function main (scriptName) {
     account: account,
     bscb20Diamond: bscb20Diamond,
     diamondLoupeFacet: diamondLoupeFacet,
-    bscb20facet: bscb20facet
+    bscb20Facet: bscb20Facet
     // bridgeFacet: bridgeFacet,
     // ghstTokenContract: ghstTokenContract,
     // itemsFacet: itemsFacet,

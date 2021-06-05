@@ -2,6 +2,7 @@
  * @type import('hardhat/config').HardhatUserConfig
  */
  require('hardhat-deploy');
+ //require('hardhat-deploy-ethers');
  //require('hardhat-spdx-license-identifier');
  require('dotenv').config();
  require('@nomiclabs/hardhat-ethers');
@@ -10,6 +11,7 @@
  const fs = require('fs');
  const INFURA_PROJECT_ID = process.env.INFURA_PID;
  const KOVAN_PRIVATE_KEY = process.env.KOVAN_KEY;
+ const ALCHEMY_PROJECT_ID = process.env.ALCHEMY_PID;
  const FORKING_ID = process.env.FORKING_ID;
  
  // This is a sample Hardhat task. To learn how to create your own go to
@@ -38,15 +40,16 @@
    },
    networks: {
      kovan: {
-       url: `https://kovan.infura.io/v3/${INFURA_PROJECT_ID}`,
+       url: `https://eth-kovan.alchemyapi.io/v2/${ALCHEMY_PROJECT_ID}`,
+       //url: `https://kovan.infura.io/v3/${INFURA_PROJECT_ID}`,   
        accounts: [`0x${KOVAN_PRIVATE_KEY}`]
-     }
-     // hardhat: {
-     //   forking: {
-     //     url: `https://eth-mainnet.alchemyapi.io/v2/${FORKING_ID}`,
-     //     blockNumber: 11395144
-     //   }
-     // }
+      }
+      // hardhat: {
+      //   forking: {
+      //     url: `https://eth-mainnet.alchemyapi.io/v2/${FORKING_ID}`,
+      //     blockNumber: 11395144
+      //   }
+      // }
    },
    watcher: {
        tasks: ["compile"],

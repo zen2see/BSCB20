@@ -3,7 +3,6 @@ pragma solidity 0.8.2;
 
 import {LibDiamond} from "../../shared/libraries/LibDiamond.sol";
 import {AppStorage} from "../libraries/LibAppStorage.sol";
-
 contract BSCB20Facet {
     AppStorage internal s;
 
